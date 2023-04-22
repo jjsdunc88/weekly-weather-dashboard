@@ -23,35 +23,37 @@ h1 {
 
 .container {
 display: flex;
-border: 5px solid red;
-width: 20%;
+/* border: 5px solid red; */
+width: 100%;
 
 }
 
 .search-history {
-    border: 5px solid red;
+    /* border: 5px solid red; */
+    width: 20%;
 }
 
 .current {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 5px solid red;
+    /* border: 5px solid red; */
+    width: 80%;
 }
 
 .list-group {
     display: flex;
     flex-direction: column;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
 .weather-forecast {
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
 .five-day {
     display: flex;
     justify-content: space-evenly;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 

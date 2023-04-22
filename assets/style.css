@@ -1,10 +1,14 @@
 body {
     background-color: aqua;
-    /* display: flex; */
 }
 
 header {
     background-color: purple;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 5vw;
+    margin: 0;
     
 }
 
@@ -12,21 +16,34 @@ h1 {
     display: flex;
     justify-content: center;
     color: white;
+    width: 100vw;
+    height: 5vw;
+    margin: 0;
 }
 
 .container {
 display: flex;
-border-style: solid;
-border:crimson;
+border: solid, 5px, red;
+
 }
 
-.search-history {
+.current {
     display: flex;
+    
     flex-direction: column;
+    
+
 }
 
 .list-group {
     display: flex;
     flex-direction: column;
+}
+
+
+.five-day {
+    display: flex;
+    justify-content: space-evenly
+
 }
 

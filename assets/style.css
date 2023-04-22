@@ -1,0 +1,32 @@
+body {
+    background-color: aqua;
+    /* display: flex; */
+}
+
+header {
+    background-color: purple;
+    
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.container {
+display: flex;
+border-style: solid;
+border:crimson;
+}
+
+.search-history {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+}
+

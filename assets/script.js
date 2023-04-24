@@ -14,18 +14,18 @@
 //First function call to get lat/lon from Geocoding API call
 function getCity (inputFromField) {
     var url = "http://api.openweathermap.org/geo/1.0/direct?" + inputFromField + "&limit=1&appid=189c818c0cb64734ca920298a295b669"
-        fetch(url) {
-            //Need to figure out what goes inside fetch
-        }
-        .then(data) {
+        fetch(url, {
+            method: 'GET',
+        })
+        .then(function (data) {
             var lat = data[0].lat;
             var lon = data[0].lon;
             getWeatherCurrent(lat,lon);
-        }
-}
+        })
+};
 
 function getWeatherCurrent (lat, lon) {
-    'https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=189c818c0cb64734ca920298a295b669'
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=189c818c0cb64734ca920298a295b669`
 }
 
 

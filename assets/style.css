@@ -9,7 +9,7 @@ header {
     width: 100vw;
     height: 5vw;
     margin: 0;
-    
+
 }
 
 h1 {
@@ -22,8 +22,8 @@ h1 {
 }
 
 .container {
-display: flex;
-width: 100%;
+    display: flex;
+    width: 100%;
 
 }
 
@@ -48,4 +48,3 @@ width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
-

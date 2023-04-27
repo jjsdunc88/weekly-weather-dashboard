@@ -1,14 +1,6 @@
 // var apiKey = "189c818c0cb64734ca920298a295b669"; - API key for openweathermap.org
 
 
-//Request Response Instructions:
-// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-// var city = "Philadelphia" 
-// fetch(queryURL)
-
-
-
-//Homework Setup Instructions:
 var historyArr =[];
 
 //First function call to get lat/lon from Geocoding API call
@@ -28,6 +20,8 @@ function getCity (inputFromField) {
         console.log("in function")
 };
 
+
+//Current Weather data API call
 function getWeatherCurrent (lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=189c818c0cb64734ca920298a295b669`)
     .then(firstResponse => firstResponse.json())
@@ -38,16 +32,17 @@ function getWeatherCurrent (lat, lon) {
     })
 }
 
+
+//5 day / 3 hour forecast data
 function getForecastCurrent (lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=189c818c0cb64734ca920298a295b669`)
     .then(firstResponse => firstResponse.json())
     .then( (secondResponse) => {
         console.log(secondResponse)
-        // fivev day
     })
 }
 
-
+//Event Listener for City input form
 document.getElementById("submitForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -60,9 +55,3 @@ document.getElementById("submitForm").addEventListener("submit", function(e) {
 
 console.log("hello");
 
-//Need variable to accept user city input
-
-//Likely specify state and country variables in API call/latitude, longitude. 
-
-//Use "Geocoding API" to get latitude and longitude
-//Use API calls: "Current Weather Data" & "5 Day / 3 Hour Forecast"

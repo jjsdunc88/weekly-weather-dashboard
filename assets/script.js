@@ -1,7 +1,10 @@
 // var apiKey = "189c818c0cb64734ca920298a295b669"; - API key for openweathermap.org
-
-
 var historyArr = [];
+if (localStorage.getItem("history")) {
+    historyArr = JSON.parse(localStorage.getItem("history"))
+}
+
+renderButtons(historyArr);
 
 //First function call to get lat/lon from Geocoding API call
 function getCity(inputFromField) {
@@ -39,7 +42,44 @@ function getForecastCurrent(lat, lon) {
         .then(firstResponse => firstResponse.json())
         .then((secondResponse) => {
             console.log(secondResponse)
+            const fiveDay = [];
+            for (i = 0; i < secondResponse.list.length; i++) {
+                // if(secondResponse.list[i].dt_txt.split(' ')[1] === " 12:00:00")
+                if (secondResponse.list[i].dt_txt.includes("12:00:00")) {
+                    fiveDay.push(secondResponse.list[i])
+                }
+            }
+
+            console.log(fiveDay);
         })
+}
+
+/*
+
+    pseudocode:
+    fn renderForecast(arr) :
+        we go through each index of the arr via a for loop
+        as we go through each index we select items from the front end (ex: temp-0, temp-1, temp-2)
+        we change the text content to match the given information for each field (ex: temp goes into temp)
+        profit
+
+*/
+
+function renderButtons(arr) {
+    const btnContainer = document.getElementById("button-region");
+    btnContainer.innerHTML = "";
+
+    for (i = 0; i < arr.length; i++) {
+        const newBtn = document.createElement("button");
+        newBtn.textContent = arr[i]
+        newBtn.addEventListener("click", function (e) {
+            e.preventDefault()
+
+            var cityIn = e.target.textContent;
+            getCity(cityIn)
+        })
+        btnContainer.appendChild(newBtn);
+    }
 }
 
 //Event Listener for City input form
@@ -48,6 +88,8 @@ document.getElementById("submitForm").addEventListener("submit", function (e) {
 
     var cityIn = document.getElementById("cityInput").value;
     historyArr.push(cityIn)
+    localStorage.setItem("history", JSON.stringify(historyArr));
+    renderButtons(historyArr)
     getCity(cityIn)
 })
 

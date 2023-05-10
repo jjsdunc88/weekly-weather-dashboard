@@ -31,7 +31,10 @@ function getWeatherCurrent(lat, lon) {
         .then((secondResponse) => {
             console.log(secondResponse)
             //daily weather
+            document.querySelector(".date").textContent = new Date();
             document.querySelector(".temp").textContent = secondResponse.main.temp + " F°";
+            document.querySelector(".Wind").textContent = secondResponse.wind.speed + "MPH";
+            document.querySelector(".Humidity").textContent = secondResponse.main.humidity + "%";
         })
 }
 

@@ -17,7 +17,7 @@ In this challenge, we built a weather dashboard that runs in the browser and fea
 
 ## Credits
 
-I worked with tutor Andres Long to gain a better understanding of API calls & JavaScript and talk through problems presented in this challenge.
+I worked with tutors Andres Long & Patrick Lakes to gain a better understanding of API calls & JavaScript to work through problems presented in this challenge.
 
 
 ## License

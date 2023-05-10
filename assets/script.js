@@ -32,10 +32,11 @@ function getWeatherCurrent(lat, lon) {
         .then((secondResponse) => {
             console.log(secondResponse)
             //daily weather
+            document.querySelector(".city").textContent = secondResponse.name;
             document.querySelector(".date").textContent = new Date();
             document.querySelector(".temp").textContent = secondResponse.main.temp + " F°";
-            document.querySelector(".Wind").textContent = secondResponse.wind.speed + " mph";
-            document.querySelector(".Humidity").textContent = secondResponse.main.humidity + "%";
+            document.querySelector(".wind").textContent = secondResponse.wind.speed + " mph";
+            document.querySelector(".humidity").textContent = secondResponse.main.humidity + "%";
         })
 }
 
@@ -59,7 +60,7 @@ function getForecastCurrent(lat, lon) {
                 const liEl = document.createElement("li")
                 
                 const dateEl = document.createElement("div")
-                dateEl.textContent = fiveDay[i].dt_txt
+                dateEl.textContent = fiveDay[i].dt_txt + " PM"
 
                 const tempEl = document.createElement("div")
                 tempEl.textContent = fiveDay[i].main.temp + "°"

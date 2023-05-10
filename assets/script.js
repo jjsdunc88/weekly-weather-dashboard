@@ -1,4 +1,5 @@
 // var apiKey = "189c818c0cb64734ca920298a295b669"; - API key for openweathermap.org
+const fiveDayParent = document.querySelector(".five-day")
 var historyArr = [];
 if (localStorage.getItem("history")) {
     historyArr = JSON.parse(localStorage.getItem("history"))
@@ -33,7 +34,7 @@ function getWeatherCurrent(lat, lon) {
             //daily weather
             document.querySelector(".date").textContent = new Date();
             document.querySelector(".temp").textContent = secondResponse.main.temp + " F°";
-            document.querySelector(".Wind").textContent = secondResponse.wind.speed + "MPH";
+            document.querySelector(".Wind").textContent = secondResponse.wind.speed + " mph";
             document.querySelector(".Humidity").textContent = secondResponse.main.humidity + "%";
         })
 }
@@ -52,10 +53,37 @@ function getForecastCurrent(lat, lon) {
                     fiveDay.push(secondResponse.list[i])
                 }
             }
+            fiveDayParent.innerHTML = "";
 
+            for (i = 0; i < fiveDay.length; i++) {
+                const liEl = document.createElement("li")
+                
+                const dateEl = document.createElement("div")
+                dateEl.textContent = fiveDay[i].dt_txt
+
+                const tempEl = document.createElement("div")
+                tempEl.textContent = fiveDay[i].main.temp + "°"
+
+                const windEl = document.createElement("div")
+                windEl.textContent = fiveDay[i].wind.speed + " mph";
+
+                const humEl = document.createElement("div")
+                humEl.textContent = fiveDay[i].main.humidity + " %"
+
+                liEl.appendChild(dateEl)
+                liEl.appendChild(tempEl)
+                liEl.appendChild(windEl)
+                fiveDayParent.appendChild(liEl)
+
+
+            }
             console.log(fiveDay);
         })
 }
+
+
+
+
 
 /*
 

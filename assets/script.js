@@ -34,6 +34,7 @@ function getWeatherCurrent(lat, lon) {
             //daily weather
             document.querySelector(".city").textContent = secondResponse.name;
             document.querySelector(".date").textContent = new Date();
+            // document.querySelector(".icon").setAttribute.src = "https://openweathermap.org/img/wn/" + secondResponse.weather[3];
             document.querySelector(".temp").textContent = secondResponse.main.temp + " F°";
             document.querySelector(".wind").textContent = secondResponse.wind.speed + " mph";
             document.querySelector(".humidity").textContent = secondResponse.main.humidity + "%";
@@ -49,7 +50,6 @@ function getForecastCurrent(lat, lon) {
             console.log(secondResponse)
             const fiveDay = [];
             for (i = 0; i < secondResponse.list.length; i++) {
-                // if(secondResponse.list[i].dt_txt.split(' ')[1] === " 12:00:00")
                 if (secondResponse.list[i].dt_txt.includes("12:00:00")) {
                     fiveDay.push(secondResponse.list[i])
                 }
@@ -58,7 +58,7 @@ function getForecastCurrent(lat, lon) {
 
             for (i = 0; i < fiveDay.length; i++) {
                 const liEl = document.createElement("li")
-                
+
                 const dateEl = document.createElement("div")
                 dateEl.textContent = fiveDay[i].dt_txt + " PM"
 
@@ -74,6 +74,7 @@ function getForecastCurrent(lat, lon) {
                 liEl.appendChild(dateEl)
                 liEl.appendChild(tempEl)
                 liEl.appendChild(windEl)
+                liEl.appendChild(humEl)
                 fiveDayParent.appendChild(liEl)
 
 
@@ -84,18 +85,6 @@ function getForecastCurrent(lat, lon) {
 
 
 
-
-
-/*
-
-    pseudocode:
-    fn renderForecast(arr) :
-        we go through each index of the arr via a for loop
-        as we go through each index we select items from the front end (ex: temp-0, temp-1, temp-2)
-        we change the text content to match the given information for each field (ex: temp goes into temp)
-        profit
-
-*/
 
 function renderButtons(arr) {
     const btnContainer = document.getElementById("button-region");
@@ -114,6 +103,8 @@ function renderButtons(arr) {
     }
 }
 
+
+
 //Event Listener for City input form
 document.getElementById("submitForm").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -127,15 +118,16 @@ document.getElementById("submitForm").addEventListener("submit", function (e) {
 
 
 
+// document.getElementById("reset").addEventListener("submit", function (e) {
+//     e.localStorage.clear();
+// })
 
 
-// ## User Story
 
-// ```
-// AS A traveler
-// I WANT to see the weather outlook for multiple cities
-// SO THAT I can plan a trip accordingly
-// ```
+
+
+
+
 
 // ## Acceptance Criteria
 

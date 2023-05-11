@@ -31,7 +31,7 @@ function getWeatherCurrent(lat, lon) {
         .then(firstResponse => firstResponse.json())
         .then((secondResponse) => {
             console.log(secondResponse)
-            let currentWeatherIcon = document.querySelector(".icon");
+            let currentWeatherIcon = document.querySelector(".icon-img");
             let weatherIcon = secondResponse.weather[0].icon;
             
             document.querySelector(".city").textContent = secondResponse.name;

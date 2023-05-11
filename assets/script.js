@@ -41,7 +41,7 @@ function getWeatherCurrent(lat, lon) {
             document.querySelector(".wind").textContent = secondResponse.wind.speed + " mph";
             document.querySelector(".humidity").textContent = secondResponse.main.humidity + "%";
 
-            console.log(weatherIcon);
+          
         })
 }
 
@@ -66,6 +66,9 @@ function getForecastCurrent(lat, lon) {
                 const dateEl = document.createElement("div")
                 dateEl.textContent = fiveDay[i].dt_txt + " PM"
 
+                const iconEl = document.createElement("img")
+                iconEl.src = `https://openweathermap.org/img/wn/${fiveDay[i].weather[0].icon}.png`;
+
                 const tempEl = document.createElement("div")
                 tempEl.textContent = fiveDay[i].main.temp + "°"
 
@@ -76,6 +79,7 @@ function getForecastCurrent(lat, lon) {
                 humEl.textContent = fiveDay[i].main.humidity + " %"
 
                 liEl.appendChild(dateEl)
+                liEl.appendChild(iconEl)
                 liEl.appendChild(tempEl)
                 liEl.appendChild(windEl)
                 liEl.appendChild(humEl)

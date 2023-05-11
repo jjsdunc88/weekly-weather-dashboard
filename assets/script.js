@@ -4,7 +4,7 @@ var historyArr = [];
 if (localStorage.getItem("history")) {
     historyArr = JSON.parse(localStorage.getItem("history"))
 }
-
+console.log("howdy");
 renderButtons(historyArr);
 
 //First function call to get lat/lon from Geocoding API call
@@ -31,13 +31,17 @@ function getWeatherCurrent(lat, lon) {
         .then(firstResponse => firstResponse.json())
         .then((secondResponse) => {
             console.log(secondResponse)
-            //daily weather
+            let currentWeatherIcon = document.querySelector(".icon");
+            let weatherIcon = secondResponse.weather[0].icon;
+            
             document.querySelector(".city").textContent = secondResponse.name;
             document.querySelector(".date").textContent = new Date();
-            // document.querySelector(".icon").setAttribute.src = "https://openweathermap.org/img/wn/" + secondResponse.weather[3];
+            currentWeatherIcon.src = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
             document.querySelector(".temp").textContent = secondResponse.main.temp + " F°";
             document.querySelector(".wind").textContent = secondResponse.wind.speed + " mph";
             document.querySelector(".humidity").textContent = secondResponse.main.humidity + "%";
+
+            console.log(weatherIcon);
         })
 }
 

@@ -2,13 +2,13 @@
 
 ## Description 
 
-In this challenge, we built a weather dashboard that runs in the browser and features dynamically updated HTML and CSS. We utilized third party API's to provide current weather and 5 day forecast data.
+In this challenge, we built a weather dashboard that runs in the browser and features dynamically updated HTML and CSS. We utilized third party API's to provide current weather and 5 day forecast data and local storage to store search history. 
 
 
 ## Usage
 
 
-![Journal app](./assets/hw6ss.png)
+![Weather Dashboard](./assets/ss2.png)
 
 
 

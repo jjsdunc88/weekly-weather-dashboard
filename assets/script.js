@@ -10,7 +10,7 @@ renderButtons(historyArr);
 
 //First function call to get lat/lon from Geocoding API call
 function getCity(inputFromField) {
-    var url = "http://api.openweathermap.org/geo/1.0/direct?q=" + inputFromField + "&limit=1&appid=189c818c0cb64734ca920298a295b669"
+    var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + inputFromField + "&limit=1&appid=189c818c0cb64734ca920298a295b669"
     fetch(url)
         .then(function (data) {
             return data.json()

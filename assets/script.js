@@ -126,9 +126,9 @@ document.getElementById("submitForm").addEventListener("submit", function (e) {
 
 
 
-// document.getElementById("reset").addEventListener("submit", function (e) {
-//     e.localStorage.clear();
-// })
+document.getElementById("reset").addEventListener("submit", function (e) {
+    e.localStorage.clear();
+})
 
 
 

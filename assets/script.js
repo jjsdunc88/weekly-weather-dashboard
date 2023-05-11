@@ -16,13 +16,11 @@ function getCity(inputFromField) {
             return data.json()
         })
         .then(function (response) {
-            console.log(response)
             var lat = response[0].lat;
             var lon = response[0].lon;
             getWeatherCurrent(lat, lon);
             getForecastCurrent(lat, lon);
         })
-    console.log("in function")
 };
 
 
@@ -31,7 +29,7 @@ function getWeatherCurrent(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=189c818c0cb64734ca920298a295b669`)
         .then(firstResponse => firstResponse.json())
         .then((secondResponse) => {
-            console.log(secondResponse)
+
             let currentWeatherIcon = document.querySelector(".icon-img");
             let weatherIcon = secondResponse.weather[0].icon;
 
@@ -52,7 +50,7 @@ function getForecastCurrent(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=189c818c0cb64734ca920298a295b669`)
         .then(firstResponse => firstResponse.json())
         .then((secondResponse) => {
-            console.log(secondResponse)
+
             const fiveDay = [];
             for (i = 0; i < secondResponse.list.length; i++) {
                 if (secondResponse.list[i].dt_txt.includes("12:00:00")) {
